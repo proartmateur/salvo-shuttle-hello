@@ -1,0 +1,1 @@
+cargo shuttle deploy --name salvo-shuttle-hello
