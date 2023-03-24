@@ -1,0 +1,1 @@
+echo DATABASE_URL=postgresql://postgres:NGmH3FBtu7BRgF0f2uAJ@containers-us-west-202.railway.app:6924/railway > .env

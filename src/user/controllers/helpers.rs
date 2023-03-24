@@ -14,7 +14,7 @@ pub fn process_deserialize_error( res: &mut Response, _err: ParseError) {
 
 pub fn process_response_json(res: &mut Response, id: &i64) {
     let user = UserResponse{
-        name: "jobs get".to_string(),
+        name: "Alice in Rustland".to_string(),
         id: id.clone()
     };
     res.render(Json(user));
