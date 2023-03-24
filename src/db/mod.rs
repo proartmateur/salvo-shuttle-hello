@@ -5,6 +5,7 @@ use diesel::pg::PgConnection;
 use diesel::prelude::*;
 use dotenvy::dotenv;
 use std::env;
+use diesel::r2d2::{ConnectionManager, PooledConnection};
 
 use schema::posts::dsl::*;
 use models::{Post};
@@ -18,9 +19,9 @@ pub fn establish_connection() -> PgConnection {
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
-pub fn show_posts() -> Vec<models::Post> {
+pub fn show_posts(connection: &mut PooledConnection<ConnectionManager<PgConnection>>) -> Vec<models::Post> {
 
-    let connection = &mut establish_connection();
+   // let connection = &mut establish_connection();
     let results = posts
         .filter(published.eq(true))
         .limit(5)
